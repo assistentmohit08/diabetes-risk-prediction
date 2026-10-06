@@ -1,0 +1,17 @@
+{
+  "feature_names": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+  ],
+  "sklearn_version": "1.6.1",
+  "test_accuracy": 0.708,
+  "test_roc_auc": 0.813,
+  "cv_mean_auc": 0.837,
+  "threshold": 0.5
+}

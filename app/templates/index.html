@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Risk Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="card">
+    <h1>Diabetes Risk Prediction</h1>
+    <p class="subtitle">
+      Logistic Regression model trained on the Pima Indians dataset
+      (ROC-AUC {{ metrics.test_roc_auc }}).
+    </p>
+
+    <form id="risk-form" novalidate>
+      <div class="grid">
+        <label>Pregnancies
+          <input type="number" name="Pregnancies" min="0" max="20" step="1" required>
+        </label>
+        <label>Glucose (mg/dL)
+          <input type="number" name="Glucose" min="40" max="400" step="any" required>
+        </label>
+        <label>Blood Pressure (mm Hg) <span class="opt">optional</span>
+          <input type="number" name="BloodPressure" min="30" max="200" step="any">
+        </label>
+        <label>Skin Thickness (mm) <span class="opt">optional</span>
+          <input type="number" name="SkinThickness" min="5" max="100" step="any">
+        </label>
+        <label>Insulin (mu U/ml) <span class="opt">optional</span>
+          <input type="number" name="Insulin" min="10" max="900" step="any">
+        </label>
+        <label>BMI
+          <input type="number" name="BMI" min="10" max="70" step="any" required>
+        </label>
+        <label>Diabetes Pedigree Function
+          <input type="number" name="DiabetesPedigreeFunction" min="0.05" max="2.5" step="any" required>
+        </label>
+        <label>Age (years)
+          <input type="number" name="Age" min="1" max="120" step="1" required>
+        </label>
+      </div>
+
+      <button type="submit" id="submit-btn">Predict Risk</button>
+    </form>
+
+    <section id="result" class="result hidden" aria-live="polite"></section>
+
+    <p class="disclaimer">
+      Educational project only. This is not medical advice.
+      Please consult a doctor for any health concern.
+    </p>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
